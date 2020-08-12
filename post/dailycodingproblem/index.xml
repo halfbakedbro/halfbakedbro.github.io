@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DailyCodingProblem on Cupper</title>
+    <link>https://haflbakedbro.github.io/post/dailycodingproblem/</link>
+    <description>Recent content in DailyCodingProblem on Cupper</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Aug 2020 15:39:11 +0530</lastBuildDate>
+    
+	<atom:link href="https://haflbakedbro.github.io/post/dailycodingproblem/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Problem2</title>
+      <link>https://haflbakedbro.github.io/problem2/</link>
+      <pubDate>Wed, 12 Aug 2020 15:39:11 +0530</pubDate>
+      
+      <guid>https://haflbakedbro.github.io/problem2/</guid>
+      <description>Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i. For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3, 2, 1], the expected output would be [2, 3, 6].</description>
+    </item>
+    
+    <item>
+      <title>Problem1</title>
+      <link>https://haflbakedbro.github.io/problem1/</link>
+      <pubDate>Wed, 12 Aug 2020 15:38:16 +0530</pubDate>
+      
+      <guid>https://haflbakedbro.github.io/problem1/</guid>
+      <description>Given a list of numbers and a number k, return whether any two numbers from the list add up to k. For example, given [10, 15, -4, 7] and k of 17, return true since 10 + 7 is 17.   #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;unordered_set&amp;gt; using namespace std; bool checkSum(vector &amp;lt;int&amp;gt; arr, int k){ int sum = 0; unordered_set&amp;lt;int&amp;gt; set; for (int i = 0 ; i &amp;lt; arr.</description>
+    </item>
+    
+  </channel>
+</rss>
