@@ -26,7 +26,7 @@
       <pubDate>Wed, 12 Aug 2020 15:38:16 +0530</pubDate>
       
       <guid>https://haflbakedbro.github.io/problem1/</guid>
-      <description>Given a list of numbers and a number k, return whether any two numbers from the list add up to k. For example, given [10, 15, -4, 7] and k of 17, return true since 10 + 7 is 17.   #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;unordered_set&amp;gt; using namespace std; bool checkSum(vector &amp;lt;int&amp;gt; arr, int k){ int sum = 0; unordered_set&amp;lt;int&amp;gt; set; for (int i = 0 ; i &amp;lt; arr.</description>
+      <description>Given a list of numbers and a number k, return whether any two numbers from the list add up to k. So For example, given [10, 15, -4, 7] and k of 17, return true since 10 + 7 is 17.   #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;unordered_set&amp;gt; using namespace std; bool checkSum(vector &amp;lt;int&amp;gt; arr, int k){ int sum = 0; unordered_set&amp;lt;int&amp;gt; set; for (int i = 0 ; i &amp;lt; arr.</description>
     </item>
     
   </channel>
