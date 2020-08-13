@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="canonical" href="https://halfbakedbro.github.io/post/dailycodingproblem/">
+  <link rel="canonical" href="https://halfbakedbro.github.io/problem3/">
 
   
 
@@ -34,7 +34,7 @@
 
   
   
-  <title>DailyCodingProblem | Ajit</title>
+  <title>Problem3 | Ajit</title>
 </head>
 
   <body>
@@ -227,68 +227,177 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>DailyCodingProblem</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Problem3
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Aug 9 2020
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<blockquote class="blockquote">
+  <p>
+    Given the root to a binary tree, implement serialize(root),
+which serializes the tree into a string,
+and deserialize(s), which deserializes the string back into the tree.
+    
+  </p>
+</blockquote>
+
+
+
+
+<div class="code-annotated numbered"><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;stack&gt;
+#include &lt;sstream&gt;
+using namespace std;
+
+
+typedef struct Node {
+    int val;
+    struct Node *left;
+    struct Node *right;
+    Node(){};
+
+    Node(int val): val(val), left(NULL) , right(NULL){}
+}node;
+
+
+class SerialDes : public node
+{
+public:
+    SerialDes() {};
+    string serialize(node *root){
+
+        ostringstream out;
+        searilizer(root, out);
+        return out.str();
+    }
+
+    node* deserialize(string data){
+        istringstream in(data);
+        return deserializer(in);
+    }
+
+private:
+    void searilizer(node* root, ostringstream&amp; out) {
+        if (root) {
+            out &lt;&lt; root-&gt;val &lt;&lt; &#39; &#39;;
+            searilizer(root-&gt;left, out);
+            searilizer(root-&gt;right, out);
+        } else {
+            out &lt;&lt; &#34;# &#34;;
+        }
+    }
+
+    node* deserializer(istringstream&amp; in) {
+        string val;
+        in &gt;&gt; val;
+        if (val == &#34;#&#34;)
+            return nullptr;
+        node* root = new node(stoi(val));
+        root-&gt;left = deserializer(in);
+        root-&gt;right = deserializer(in);
+        return root;
+    }
+};
+
+void Insert(node *&amp; root, int val){
+
+    if (root == NULL){
+        root = new node(val);
+    }else if (root-&gt;val &gt; val){
+        Insert(root-&gt;left , val);
+    }else{
+        Insert(root-&gt;right, val);
+    }
+}
+
+void Inorder(node *root){
+    if (root == NULL)
+        return;
+    
+    Inorder(root-&gt;left);
+    cout &lt;&lt; root-&gt;val &lt;&lt; &#34; &#34;;
+    Inorder(root-&gt;right);
+}
+
+
+int main() {
+    node *root = NULL;
+    SerialDes s;
+
+    Insert(root, 12);
+    Insert(root, 4);
+    Insert(root, 6);
+    Insert(root, 1);
+    Insert(root, 8);
+    Insert(root, 3);
+    Insert(root, 31);
+    Insert(root, 13);
+
+    Inorder(root);
+    cout &lt;&lt; endl;
+
+    string str = s.serialize(root);
+
+    for (auto a: str){
+        cout &lt;&lt; a;
+    }
+    cout &lt;&lt; endl;
+    node *temp = s.deserialize(str);
+    Inorder(temp);
+    cout &lt;&lt; endl;
+}
+</code></div>
+
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/problem3/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Problem3
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/problem2/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Problem2
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/problem1/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Problem1
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           <footer role="contentinfo">
   <div>
