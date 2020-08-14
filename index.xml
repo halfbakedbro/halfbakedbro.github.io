@@ -6,10 +6,19 @@
     <description>Recent content on Ajit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2020 21:40:06 +0530</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2020 21:03:27 +0530</lastBuildDate>
     
 	<atom:link href="https://halfbakedbro.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Problem4</title>
+      <link>https://halfbakedbro.github.io/problem4/</link>
+      <pubDate>Fri, 14 Aug 2020 21:03:27 +0530</pubDate>
+      
+      <guid>https://halfbakedbro.github.io/problem4/</guid>
+      <description>  Given an array of integers, find the first missing positive integer in linear time and constant space. In other words, find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers as well. For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should give 3. You can modify the input array in-place.   #include &amp;lt;iostream&amp;gt; using namespace std; void swap(int *a, int *b){ int temp = *a; *a = *b; *b = temp; } int findMisUtil(int arr[], int size); int splitter(int arr[] , int size){ int j = 0; for (int i = 0 ; i &amp;lt; size; i++){ if (arr[i] &amp;lt;= 0){ swap(&amp;amp;arr[i], &amp;amp;arr[j]); j++; } } return j; } int findMissing(int arr[], int size){ int sh = splitter(arr, size); return findMisUtil(arr+sh , size-sh); } int findMisUtil(int arr[], int size){ for (int i = 0 ; i &amp;lt; size ; i++){ if (abs(arr[i]) - 1 &amp;lt; size &amp;amp;&amp;amp; arr[abs(arr[i]) - 1] &amp;gt; 0) arr[abs(arr[i])-1] = -arr[abs(arr[i])-1]; } for (int i = 0 ; i &amp;lt; size ; i++) if (arr[i] &amp;gt; 0) return i+1; return size+1; } int main() { int arr[] = {3,4,-1,1}; int arr2[] = {5,2,4,3}; cout &amp;lt;&amp;lt; findMissing(arr, 4) &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; findMissing(arr2, 4) &amp;lt;&amp;lt; endl; }  </description>
+    </item>
     
     <item>
       <title>Problem3</title>
