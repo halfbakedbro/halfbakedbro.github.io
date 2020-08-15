@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="canonical" href="https://halfbakedbro.github.io/post/">
+  <link rel="canonical" href="https://halfbakedbro.github.io/post/dailycodingproblem/problem6/">
 
   
 
@@ -34,7 +34,7 @@
 
   
   
-  <title>Blog | Ajit</title>
+  <title>Problem6 | Ajit</title>
 </head>
 
   <body>
@@ -227,52 +227,167 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Blog</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Problem6
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Aug 7 2020
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<blockquote class="blockquote">
+  <p>
+    An XOR linked list is a more memory efficient doubly linked list.
+Instead of each node holding next and prev fields, it holds a field named both,
+which is an XOR of the next node and the previous node. Implement an XOR linked list;
+it has an add(element) which adds the element to the end, and a get(index) which returns the node at index.
+    
+  </p>
+</blockquote>
+
+
+
+
+<div class="code-annotated "><code>
+#include &lt;iostream&gt;
+#include &lt;cstdint&gt;
+
+using namespace  std;
+
+
+struct node {
+    int val;
+    struct node* xptr;
+
+    node(int val):val(val), xptr(NULL){}
+};
+
+node* XOR(node *m, node *n){
+    return (node*)((uintptr_t)m ^ (uintptr_t)n);
+}
+
+void addNode (/*node *&amp; curr, */node *&amp;tail, int val){
+
+    node *temp = new node(val);
+
+    temp-&gt;xptr = XOR(tail, NULL);
+
+    if (tail != NULL){
+        node *next = XOR(tail-&gt;xptr, NULL);
+        tail-&gt;xptr = XOR(temp, next);
+    }
+
+    tail = temp;
+    // if (curr == NULL){
+    //     temp-&gt;xptr = XOR(curr, NULL);
+    //     curr = temp;
+    // }
+    // else{
+    //     node *prev = NULL;
+    //     node *next = NULL;
+    //     node *head = curr;
+    //     while( head-&gt;xptr != NULL){
+
+    //         next = XOR(prev, head-&gt;xptr);
+
+    //         prev = head;
+    //         head = next;
+    //     }
+    //     if (prev == NULL){
+    //         head-&gt;xptr = XOR(prev, temp);
+    //     }
+    //     else
+    //         head-&gt;xptr = XOR(prev, temp);
+    // }
+    /*else if (prev == NULL){
+        curr-&gt;xptr = temp;
+        temp-&gt;xptr = curr;
+    }else{
+        curr-&gt;xptr = (node*)((uintptr_t)prev ^ (uintptr_t)curr-&gt;xptr);
+    }*/
+
+    //return temp;
+}
+
+void PrintList(node *head){
+    node *curr = head;
+    node *prev = NULL;
+    node *next = NULL;
+
+    while (curr != NULL){
+        cout &lt;&lt; curr-&gt;val &lt;&lt; &#34;-&gt;&#34;;
+
+        next = XOR(prev , curr-&gt;xptr);
+
+        prev = curr;
+        curr = next;
+    }
+
+    cout &lt;&lt; &#34;NULL&#34; &lt;&lt; endl;
+}
+
+int main() {
+
+    node *head = new node(1);
+    node *tail = head;
+    //head = tail;
+
+    //addNode(head, tail, 1);
+    addNode( tail, 2);
+    addNode( tail,3);
+    addNode( tail,4);
+    addNode(tail,5);
+    addNode(tail,6);
+
+    PrintList(head);
+}
+</code></div>
+
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/dailycodingproblem/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          DailyCodingProblem
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/eulerproj/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Euler Project
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           <footer role="contentinfo">
   <div>

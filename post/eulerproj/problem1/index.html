@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="canonical" href="https://halfbakedbro.github.io/post/">
+  <link rel="canonical" href="https://halfbakedbro.github.io/post/eulerproj/problem1/">
 
   
 
@@ -34,7 +34,7 @@
 
   
   
-  <title>Blog | Ajit</title>
+  <title>Problem1 | Ajit</title>
 </head>
 
   <body>
@@ -227,52 +227,87 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Blog</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Problem1
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Aug 7 2020
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<blockquote class="blockquote">
+  <p>
+    <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
+The sum of these multiples is 23.</p>
+<p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+
+    
+  </p>
+</blockquote>
+
+
+
+
+<div class="code-annotated "><code>
+func Prob1() int64 {
+
+	var sum int64 = 0
+	var i int64 = 0
+	for i = 0; i &lt; 1000; i++ {
+		if i%3 == 0 || i%5 == 0 {
+			sum = sum + i
+		}
+	}
+
+	return sum
+}
+</code></div>
+
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/dailycodingproblem/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          DailyCodingProblem
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/eulerproj/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Euler Project
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           <footer role="contentinfo">
   <div>

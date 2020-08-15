@@ -12,46 +12,46 @@
     
     <item>
       <title>Problem6</title>
-      <link>https://halfbakedbro.github.io/problem6/</link>
+      <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem6/</link>
       <pubDate>Sat, 15 Aug 2020 19:36:36 +0530</pubDate>
       
-      <guid>https://halfbakedbro.github.io/problem6/</guid>
+      <guid>https://halfbakedbro.github.io/post/dailycodingproblem/problem6/</guid>
       <description>An XOR linked list is a more memory efficient doubly linked list. Instead of each node holding next and prev fields, it holds a field named both, which is an XOR of the next node and the previous node. Implement an XOR linked list; it has an add(element) which adds the element to the end, and a get(index) which returns the node at index.   #include &amp;lt;iostream&amp;gt; #include &amp;lt;cstdint&amp;gt; using namespace std; struct node { int val; struct node* xptr; node(int val):val(val), xptr(NULL){} }; node* XOR(node *m, node *n){ return (node*)((uintptr_t)m ^ (uintptr_t)n); } void addNode (/*node *&amp;amp; curr, */node *&amp;amp;tail, int val){ node *temp = new node(val); temp-&amp;gt;xptr = XOR(tail, NULL); if (tail !</description>
     </item>
     
     <item>
       <title>Problem4</title>
-      <link>https://halfbakedbro.github.io/problem4/</link>
+      <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem4/</link>
       <pubDate>Fri, 14 Aug 2020 21:03:27 +0530</pubDate>
       
-      <guid>https://halfbakedbro.github.io/problem4/</guid>
+      <guid>https://halfbakedbro.github.io/post/dailycodingproblem/problem4/</guid>
       <description>  Given an array of integers, find the first missing positive integer in linear time and constant space. In other words, find the lowest positive integer that does not exist in the array. The array can contain duplicates and negative numbers as well. For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should give 3. You can modify the input array in-place.   #include &amp;lt;iostream&amp;gt; using namespace std; void swap(int *a, int *b){ int temp = *a; *a = *b; *b = temp; } int findMisUtil(int arr[], int size); int splitter(int arr[] , int size){ int j = 0; for (int i = 0 ; i &amp;lt; size; i++){ if (arr[i] &amp;lt;= 0){ swap(&amp;amp;arr[i], &amp;amp;arr[j]); j++; } } return j; } int findMissing(int arr[], int size){ int sh = splitter(arr, size); return findMisUtil(arr+sh , size-sh); } int findMisUtil(int arr[], int size){ for (int i = 0 ; i &amp;lt; size ; i++){ if (abs(arr[i]) - 1 &amp;lt; size &amp;amp;&amp;amp; arr[abs(arr[i]) - 1] &amp;gt; 0) arr[abs(arr[i])-1] = -arr[abs(arr[i])-1]; } for (int i = 0 ; i &amp;lt; size ; i++) if (arr[i] &amp;gt; 0) return i+1; return size+1; } int main() { int arr[] = {3,4,-1,1}; int arr2[] = {5,2,4,3}; cout &amp;lt;&amp;lt; findMissing(arr, 4) &amp;lt;&amp;lt; &amp;#34; &amp;#34; &amp;lt;&amp;lt; findMissing(arr2, 4) &amp;lt;&amp;lt; endl; }  </description>
     </item>
     
     <item>
       <title>Problem3</title>
-      <link>https://halfbakedbro.github.io/problem3/</link>
+      <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem3/</link>
       <pubDate>Thu, 13 Aug 2020 21:40:06 +0530</pubDate>
       
-      <guid>https://halfbakedbro.github.io/problem3/</guid>
+      <guid>https://halfbakedbro.github.io/post/dailycodingproblem/problem3/</guid>
       <description>Given the root to a binary tree, implement serialize(root), which serializes the tree into a string, and deserialize(s), which deserializes the string back into the tree.   #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;stack&amp;gt; #include &amp;lt;sstream&amp;gt; using namespace std; typedef struct Node { int val; struct Node *left; struct Node *right; Node(){}; Node(int val): val(val), left(NULL) , right(NULL){} }node; class SerialDes : public node { public: SerialDes() {}; string serialize(node *root){ ostringstream out; searilizer(root, out); return out.</description>
     </item>
     
     <item>
       <title>Problem2</title>
-      <link>https://halfbakedbro.github.io/problem2/</link>
+      <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem2/</link>
       <pubDate>Wed, 12 Aug 2020 15:39:11 +0530</pubDate>
       
-      <guid>https://halfbakedbro.github.io/problem2/</guid>
+      <guid>https://halfbakedbro.github.io/post/dailycodingproblem/problem2/</guid>
       <description>Given an array of integers, return a new array such that each element at index i of the new array is the product of all the numbers in the original array except the one at i. For example, if our input was [1, 2, 3, 4, 5], the expected output would be [120, 60, 40, 30, 24]. If our input was [3, 2, 1], the expected output would be [2, 3, 6].</description>
     </item>
     
     <item>
       <title>Problem1</title>
-      <link>https://halfbakedbro.github.io/problem1/</link>
+      <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem1/</link>
       <pubDate>Wed, 12 Aug 2020 15:38:16 +0530</pubDate>
       
-      <guid>https://halfbakedbro.github.io/problem1/</guid>
+      <guid>https://halfbakedbro.github.io/post/dailycodingproblem/problem1/</guid>
       <description>Given a list of numbers and a number k, return whether any two numbers from the list add up to k. So For example, given [10, 15, -4, 7] and k of 17, return true since 10 + 7 is 17.   #include &amp;lt;iostream&amp;gt; #include &amp;lt;vector&amp;gt; #include &amp;lt;unordered_set&amp;gt; using namespace std; bool checkSum(vector &amp;lt;int&amp;gt; arr, int k){ int sum = 0; unordered_set&amp;lt;int&amp;gt; set; for (int i = 0 ; i &amp;lt; arr.</description>
     </item>
     

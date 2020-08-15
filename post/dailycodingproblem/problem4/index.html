@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="canonical" href="https://halfbakedbro.github.io/post/">
+  <link rel="canonical" href="https://halfbakedbro.github.io/post/dailycodingproblem/problem4/">
 
   
 
@@ -34,7 +34,7 @@
 
   
   
-  <title>Blog | Ajit</title>
+  <title>Problem4 | Ajit</title>
 </head>
 
   <body>
@@ -227,52 +227,134 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Blog</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Problem4
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Aug 9 2020
+      
+        
+          <br>
+          <strong>Last updated: </strong>Aug 9 2020
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<blockquote class="blockquote">
+  <p>
+    Given an array of integers, find the first missing positive integer in linear time and constant space.
+In other words, find the lowest positive integer that does not exist in the array.
+The array can contain duplicates and negative numbers as well.
+For example, the input [3, 4, -1, 1] should give 2. The input [1, 2, 0] should give 3.
+You can modify the input array in-place.
+    
+  </p>
+</blockquote>
+
+
+
+
+<div class="code-annotated numbered"><code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+void swap(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int findMisUtil(int arr[], int size);
+
+int splitter(int arr[] , int size){
+
+    int j = 0;
+    for (int i = 0 ; i &lt; size; i++){
+        if (arr[i] &lt;= 0){
+            swap(&amp;arr[i], &amp;arr[j]);
+            j++;
+        }
+    }
+
+    return j;
+}
+
+int  findMissing(int arr[], int size){
+    int sh = splitter(arr, size);
+
+   return findMisUtil(arr+sh , size-sh);
+}
+
+int findMisUtil(int arr[], int size){
+
+    for (int i = 0 ; i &lt; size ; i++){
+
+        if (abs(arr[i]) - 1 &lt; size &amp;&amp; arr[abs(arr[i]) - 1] &gt; 0)
+            arr[abs(arr[i])-1] = -arr[abs(arr[i])-1];
+    }
+
+    for (int i = 0 ; i &lt; size ; i++)
+        if (arr[i] &gt; 0)
+            return i+1;
+
+    return size+1;
+        
+}
+
+
+int main() {
+
+    int arr[] = {3,4,-1,1};
+
+    int arr2[] = {5,2,4,3};
+
+    cout &lt;&lt; findMissing(arr, 4) &lt;&lt; &#34; &#34; &lt;&lt; findMissing(arr2, 4) &lt;&lt; endl;
+}
+</code></div>
+
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/dailycodingproblem/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          DailyCodingProblem
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/eulerproj/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Euler Project
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           <footer role="contentinfo">
   <div>
