@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="canonical" href="https://halfbakedbro.github.io/post/eulerproj/problem1/">
+  <link rel="canonical" href="https://halfbakedbro.github.io/post/eulerproj/problem3/">
 
   
 
@@ -34,7 +34,7 @@
 
   
   
-  <title>Problem1 | Ajit</title>
+  <title>Problem3 | Ajit</title>
 </head>
 
   <body>
@@ -232,13 +232,13 @@
       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use xlink:href="#bookmark"></use>
       </svg>
-      Problem1
+      Problem3
     </h1>
 
     <div class="date">
       
       
-      <strong>Publish date: </strong>Aug 7 2020
+      <strong>Publish date: </strong>Aug 6 2020
       
         
       
@@ -256,9 +256,8 @@
 
 <blockquote class="blockquote">
   <p>
-    <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
-The sum of these multiples is 23.</p>
-<p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
+    <p>The prime factors of 13195 are 5, 7, 13 and 29.</p>
+<p>What is the largest prime factor of the number 600851475143 ?</p>
 
     
   </p>
@@ -268,17 +267,34 @@ The sum of these multiples is 23.</p>
 
 
 <div class="code-annotated "><code>
-func Prob1() int64 {
+func Prob3() int64 {
 
-	var sum int64 = 0
-	var i int64 = 0
-	for i = 0; i &lt; 1000; i++ {
-		if i%3 == 0 || i%5 == 0 {
-			sum = sum + i
-		}
-	}
+        var n int64 = 600851475143
+        var high int64 = 0
 
-	return sum
+        var i int64 = 0
+
+        for n%2 == 0 {
+
+                high = 2
+                n = n / 2
+        }
+
+        var x float64 = float64(n)
+
+        var b = int64(math.Sqrt(x))
+
+        for i = 3; i &lt; b; i = i + 2 {
+
+                for n%i == 0 {
+                        if i &gt; high {
+                                high = i
+                        }
+                        n = n / i
+                }
+        }
+
+        return high
 }
 </code></div>
 

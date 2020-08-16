@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="canonical" href="https://halfbakedbro.github.io/post/eulerproj/problem1/">
+  <link rel="canonical" href="https://halfbakedbro.github.io/post/dailycodingproblem/problem7/">
 
   
 
@@ -34,7 +34,7 @@
 
   
   
-  <title>Problem1 | Ajit</title>
+  <title>Problem7 | Ajit</title>
 </head>
 
   <body>
@@ -232,13 +232,13 @@
       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use xlink:href="#bookmark"></use>
       </svg>
-      Problem1
+      Problem7
     </h1>
 
     <div class="date">
       
       
-      <strong>Publish date: </strong>Aug 7 2020
+      <strong>Publish date: </strong>Aug 6 2020
       
         
       
@@ -256,10 +256,9 @@
 
 <blockquote class="blockquote">
   <p>
-    <p>If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.
-The sum of these multiples is 23.</p>
-<p>Find the sum of all the multiples of 3 or 5 below 1000.</p>
-
+    Given the mapping a = 1, b = 2, &hellip; z = 26, and an encoded message, count the number of ways it can be decoded.
+For example, the message &lsquo;111&rsquo; would give 3, since it could be decoded as &lsquo;aaa&rsquo;, &lsquo;ka&rsquo;, and &lsquo;ak&rsquo;.
+You can assume that the messages are decodable. For example, &lsquo;001&rsquo; is not allowed.
     
   </p>
 </blockquote>
@@ -268,17 +267,40 @@ The sum of these multiples is 23.</p>
 
 
 <div class="code-annotated "><code>
-func Prob1() int64 {
+#include &lt;iostream&gt;
+#include &lt;string.h&gt;
 
-	var sum int64 = 0
-	var i int64 = 0
-	for i = 0; i &lt; 1000; i++ {
-		if i%3 == 0 || i%5 == 0 {
-			sum = sum + i
-		}
-	}
+using namespace std;
 
-	return sum
+
+int countDecode(char arr[], int n){
+
+    int ways[n+1];
+    ways[0] = 1;
+    ways[1] = 1;
+
+    for (int i = 2; i &lt;= n ; i++){
+
+        ways[i] = 0;
+        if (arr[i-1] &gt; &#39;0&#39;){
+            ways[i] = ways[i-1];
+        }
+
+        if (arr[i-2] == &#39;1&#39; ||
+            (arr[i-2] == &#39;2&#39; &amp;&amp; arr[i-1] &lt; &#39;7&#39;)){
+                ways[i]+= ways[i-2];
+            }
+
+    }
+
+    return ways[n];
+}
+
+int main() {
+
+    char arr [] = &#34;1111&#34;;
+
+    cout &lt;&lt; countDecode(arr, strlen(arr)) &lt;&lt; endl;
 }
 </code></div>
 

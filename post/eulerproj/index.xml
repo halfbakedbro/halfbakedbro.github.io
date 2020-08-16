@@ -6,10 +6,21 @@
     <description>Recent content in Euler Project on Ajit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2020 19:56:47 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 16 Aug 2020 18:59:43 +0530</lastBuildDate>
     
 	<atom:link href="https://halfbakedbro.github.io/post/eulerproj/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Problem3</title>
+      <link>https://halfbakedbro.github.io/post/eulerproj/problem3/</link>
+      <pubDate>Sun, 16 Aug 2020 18:59:43 +0530</pubDate>
+      
+      <guid>https://halfbakedbro.github.io/post/eulerproj/problem3/</guid>
+      <description>  The prime factors of 13195 are 5, 7, 13 and 29.
+What is the largest prime factor of the number 600851475143 ?
+  func Prob3() int64 { var n int64 = 600851475143 var high int64 = 0 var i int64 = 0 for n%2 == 0 { high = 2 n = n / 2 } var x float64 = float64(n) var b = int64(math.Sqrt(x)) for i = 3; i &amp;lt; b; i = i + 2 { for n%i == 0 { if i &amp;gt; high { high = i } n = n / i } } return high }  </description>
+    </item>
     
     <item>
       <title>Problem2</title>

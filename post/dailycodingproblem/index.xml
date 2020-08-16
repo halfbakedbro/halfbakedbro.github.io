@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Problem7</title>
+      <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem7/</link>
+      <pubDate>Sun, 16 Aug 2020 18:56:32 +0530</pubDate>
+      
+      <guid>https://halfbakedbro.github.io/post/dailycodingproblem/problem7/</guid>
+      <description>  Given the mapping a = 1, b = 2, &amp;hellip; z = 26, and an encoded message, count the number of ways it can be decoded. For example, the message &amp;lsquo;111&amp;rsquo; would give 3, since it could be decoded as &amp;lsquo;aaa&amp;rsquo;, &amp;lsquo;ka&amp;rsquo;, and &amp;lsquo;ak&amp;rsquo;. You can assume that the messages are decodable. For example, &amp;lsquo;001&amp;rsquo; is not allowed.   #include &amp;lt;iostream&amp;gt; #include &amp;lt;string.h&amp;gt; using namespace std; int countDecode(char arr[], int n){ int ways[n+1]; ways[0] = 1; ways[1] = 1; for (int i = 2; i &amp;lt;= n ; i++){ ways[i] = 0; if (arr[i-1] &amp;gt; &amp;#39;0&amp;#39;){ ways[i] = ways[i-1]; } if (arr[i-2] == &amp;#39;1&amp;#39; || (arr[i-2] == &amp;#39;2&amp;#39; &amp;amp;&amp;amp; arr[i-1] &amp;lt; &amp;#39;7&amp;#39;)){ ways[i]+= ways[i-2]; } } return ways[n]; } int main() { char arr [] = &amp;#34;1111&amp;#34;; cout &amp;lt;&amp;lt; countDecode(arr, strlen(arr)) &amp;lt;&amp;lt; endl; }  </description>
+    </item>
+    
+    <item>
       <title>Problem6</title>
       <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem6/</link>
       <pubDate>Sat, 15 Aug 2020 19:36:36 +0530</pubDate>
