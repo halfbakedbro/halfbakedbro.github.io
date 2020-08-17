@@ -11,6 +11,15 @@
     
     
     <item>
+      <title>Problem8</title>
+      <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem8/</link>
+      <pubDate>Mon, 17 Aug 2020 14:43:37 +0530</pubDate>
+      
+      <guid>https://halfbakedbro.github.io/post/dailycodingproblem/problem8/</guid>
+      <description>A unival tree (which stands for &amp;ldquo;universal value&amp;rdquo;) is a tree where all nodes under it have the same value. Given the root to a binary tree, count the number of unival subtrees. For example, the following tree has 5 unival subtrees:   #include &amp;lt;iostream&amp;gt; using namespace std; struct node { int val; node* left; node* right; node(int v):val(v), left(NULL), right(NULL){} }; bool countUni(node *root, int &amp;amp;count){ if (root == NULL) return true; bool left = countUni(root-&amp;gt;left, count); bool right = countUni(root-&amp;gt;right, count); if (!</description>
+    </item>
+    
+    <item>
       <title>Problem7</title>
       <link>https://halfbakedbro.github.io/post/dailycodingproblem/problem7/</link>
       <pubDate>Sun, 16 Aug 2020 18:56:32 +0530</pubDate>

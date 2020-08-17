@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <meta name="generator" content="Hugo 0.74.3" />
-  <link rel="canonical" href="https://halfbakedbro.github.io/post/eulerproj/">
+  <link rel="canonical" href="https://halfbakedbro.github.io/post/dailycodingproblem/problem8/">
 
   
 
@@ -34,7 +34,7 @@
 
   
   
-  <title>Euler Project | Ajit</title>
+  <title>Problem8 | Ajit</title>
 </head>
 
   <body>
@@ -227,84 +227,126 @@
       <div class="main-and-footer">
         <div>
           
-<main id="main">
-  <h1>Euler Project</h1>
+  <main id="main">
+    <h1>
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Problem8
+    </h1>
+
+    <div class="date">
+      
+      
+      <strong>Publish date: </strong>Aug 2 2020
+      
+        
+      
+    </div>
+
+    
+    
+    
+      
+
+
+    
+
+    
+
+<blockquote class="blockquote">
+  <p>
+    A unival tree (which stands for &ldquo;universal value&rdquo;) is a tree where all nodes under it have the same value.
+Given the root to a binary tree, count the number of unival subtrees.
+For example, the following tree has 5 unival subtrees:
+    
+  </p>
+</blockquote>
+
+
+
+
+<div class="code-annotated "><code>
+#include &lt;iostream&gt;
+
+using namespace std;
+
+struct node {
+    int val;
+
+    node* left;
+    node* right;
+
+    node(int v):val(v), left(NULL), right(NULL){}
+};
+
+bool countUni(node *root, int &amp;count){
+    
+    if (root == NULL)
+        return true;
+    
+    bool left = countUni(root-&gt;left, count);
+    bool right = countUni(root-&gt;right, count);
+
+    if (!left  &amp;&amp; !right)
+        return false;
+
+    if (root-&gt;left &amp;&amp; root-&gt;val != root-&gt;left-&gt;val)
+        return false;
+
+    if (root-&gt;right &amp;&amp; root-&gt;val != root-&gt;right-&gt;val)
+        return false;
+
+    count += 1;
+    return true;
+}
+
+int main() {
+    node *root = new node(0);
+    root-&gt;left = new node(1);
+    root-&gt;right = new node(0);
+    root-&gt;right-&gt;left = new node(1);
+    root-&gt;right-&gt;right = new node(0);
+
+    root-&gt;right-&gt;left-&gt;left = new node(1);
+    root-&gt;right-&gt;left-&gt;right = new node(1);
+
+    int count = 0;
+
+    countUni(root, count);
+
+    cout &lt;&lt; count &lt;&lt; endl;
+
+    return 0;
+}
+</code></div>
+
+
+  </main>
+  <div id="disqus-container">
   
-  <input
-    id="search"
-    type="text"
-    placeholder="Search by title..."
-    aria-label="Search by title"
-  />
+    <button id="disqus-button" onclick="showComments()">Show comments</button>
+    <div id="disqus-comments">
+      
+      
+      
+        <p><em>Disqus comments are disabled.</em></p>
+        <script type="application/javascript">
+          function showComments() {
+            // Remove button
+var disqusButton = document.getElementById('disqus-button');
+disqusButton.parentNode.removeChild(disqusButton); 
+// Un-hide comments
+var disqusComments = document.getElementById('disqus-comments');
+disqusComments.style.display = 'block'; 
+          }
+        </script>
+      
+      <noscript>Enable JavaScript to view Disqus comments.</noscript>
+    </div>
   
-  <ul class="patterns-list" id="list">
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/eulerproj/problem4/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Problem4
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/eulerproj/problem3/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Problem3
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/eulerproj/problem2/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Problem2
-        </a>
-      </h2>
-    </li>
-    
-    <li>
-      <h2>
-        <a href="https://halfbakedbro.github.io/post/eulerproj/problem1/">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use xlink:href="#bookmark"></use>
-          </svg>
-          Problem1
-        </a>
-      </h2>
-    </li>
-    
-  </ul>
-</main>
+</div>
+
 
           <footer role="contentinfo">
   <div>
